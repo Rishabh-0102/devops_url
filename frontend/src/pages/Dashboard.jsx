@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";
-
 function Dashboard() {
 
     const [originalUrl, setOriginalUrl] = useState("");
@@ -19,7 +17,7 @@ function Dashboard() {
             const token = localStorage.getItem("token");
 
             const response = await axios.post(
-                `${API_URL}/api/url/shorten`,
+                `/api/url/shorten`,
 
                 {
                     originalUrl,
@@ -50,7 +48,7 @@ function Dashboard() {
             const token = localStorage.getItem("token");
 
             const response = await axios.get(
-                `${API_URL}/api/url/myurls`,
+                `/api/url/myurls`,
 
                 {
                     headers: {
@@ -75,7 +73,7 @@ function Dashboard() {
             const token = localStorage.getItem("token");
 
             await axios.delete(
-                `${API_URL}/api/url/${id}`,
+                `/api/url/${id}`,
 
                 {
                     headers: {
